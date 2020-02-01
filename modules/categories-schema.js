@@ -1,32 +1,34 @@
 'use strict';
 
 const mongoose = require('mongoose');
-require('./players-schema.js');
+require('./products-schema.js');
 
-const teamsSchema = mongoose.Schema({
+const categoriesSchema = mongoose.Schema({
 
-    name: { type: String, required: true }
+  name: { type: String, required: true },
+  display_name: { type: String, required: true },
+  description: { type: String, required: true }
 }, 
 { toObject: { virtuals: true }, toJSON: { virtuals: true }
 
 });
 
-teamsSchema.virtual('actualPlayers', {
+categoriesSchema.virtual('actualProducts', {
 
-  ref: 'players',
+  ref: 'products',
   localField: 'name',
-  foreignField: 'team',
+  foreignField: 'category',
   justOne: false
 
 });
 
-teamsSchema.pre('findOne', function() {
+categoriesSchema.pre('findOne', function() {
     
   try {
-    this.populate('actualPlayers');
+    this.populate('actualProducts');
   } catch(e) {
     console.error(e);
   }
 });
 
-module.exports = mongoose.model('teams', teamsSchema);
+module.exports = mongoose.model('categories', categoriesSchema);
