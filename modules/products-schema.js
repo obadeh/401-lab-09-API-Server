@@ -1,4 +1,4 @@
-'use strict';
+
 
 const mongoose = require('mongoose');
 require('./categories-schema.js');
@@ -8,7 +8,7 @@ const products = mongoose.Schema({
   category: { type: String, required: true },
   name: { type: String, required: true },
   display_name: { type: String, required: true },
-  description: { type: String, required: true }
+  description: { type: String, required: true },
 
 }
 // , { toObject: { virtuals: true}, toJSON: { virtuals: true }}
@@ -18,7 +18,7 @@ const products = mongoose.Schema({
 //   ref: 'teams',
 //   localField: 'team',
 //   foreignField: 'name',
-//   justOne: false 
+//   justOne: false
 // });
 
 // products.pre('findOne', function() {

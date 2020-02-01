@@ -7,8 +7,8 @@
 
 ### Links and Resources
 
-- [submission PR](http://xyz.com)
-- [ci/cd](http://xyz.com) (GitHub Actions)
+- [submission PR](https://github.com/obadeh/401-lab-09-API-Server/pull/1)
+- [ci/cd](https://github.com/obadeh/401-lab-09-API-Server/actions) (GitHub Actions)
 
 ### Setup
 
