@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/obadeh/401-lab-09-API-Server#readme",
   "dependencies": {
+    "@code-fellows/supergoose": "^1.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",

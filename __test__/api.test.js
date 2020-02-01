@@ -38,3 +38,15 @@ describe('Categories >>>> CRUD', () => {
 // });
 
 })
+
+describe('test error handlers',()=>{
+    it('it should send 500 error',()=>{
+        return mockRequest.get('/api/v1/error')
+        .then(response => {
+        expect(response.status).toEqual(500)
+          
+        })
+    })
+
+   
+})
