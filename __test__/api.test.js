@@ -1,4 +1,4 @@
-'use strict';
+
 
 const { server } = require('../lib/server.js');
 const supergoose = require('@code-fellows/supergoose');
@@ -15,38 +15,38 @@ describe('Categories >>>> CRUD', () => {
         Object.keys(testObj).forEach(key => {
           expect(record[key]).toEqual(testObj[key]);
         });
-        
-      })
-  }); 
+
+      });
+  });
 
 
   it('get a categorie item', () => {
-   
-  return mockRequest.get('/api/v1/categories')
-  .then(response => {
-    expect(response.status).toEqual(200)
-  })
+
+    return mockRequest.get('/api/v1/categories')
+      .then(response => {
+        expect(response.status).toEqual(200);
+      });
+  });
+
+  // it('delete a categorie item', () => {
+
+  //   return mockRequest.delete('/api/v1/categories')
+  //   .then(response => {
+  //     console.log('response.body : ', response.body);
+  //     expect(response.status).toEqual(200)
+  //   })
+  // });
+
 });
 
-// it('delete a categorie item', () => {
-   
-//   return mockRequest.delete('/api/v1/categories')
-//   .then(response => {
-//     console.log('response.body : ', response.body);
-//     expect(response.status).toEqual(200)
-//   })
-// });
-
-})
-
 describe('test error handlers',()=>{
-    it('it should send 500 error',()=>{
-        return mockRequest.get('/api/v1/error')
-        .then(response => {
-        expect(response.status).toEqual(500)
-          
-        })
-    })
+  it('it should send 500 error',()=>{
+    return mockRequest.get('/api/v1/error')
+      .then(response => {
+        expect(response.status).toEqual(500);
 
-   
-})
+      });
+  });
+
+
+});

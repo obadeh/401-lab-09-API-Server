@@ -1,4 +1,4 @@
-'use strict';
+
 
 const express = require('express');
 const router = express.Router();
@@ -10,17 +10,17 @@ function getModel(req, res, next) {
   let model = req.params.model;
 
   switch(model) {
-    case "categories":
-      req.model = categories;
-      next();
-      return;
-    case "products":
-      req.model = products;
-      next();
-      return;
-    default:
-      next('invalid model');
-      return;
+  case 'categories':
+    req.model = categories;
+    next();
+    return;
+  case 'products':
+    req.model = products;
+    next();
+    return;
+  default:
+    next('invalid model');
+    return;
   }
 }
 
@@ -28,7 +28,7 @@ router.param('model', getModel);
 
 router.get('/api/v1/:model', handleGetAll);
 router.post('/api/v1/:model', handlePost);
-router.get('/api/v1/:model/:id', handleGetOne)
+router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handleUpdate);
 router.delete('/api/v1/:model/:id', handleDelete);
 
@@ -39,14 +39,14 @@ function handleGetAll(req, res, next) {
       console.log('******** results: *********', results);
       let count = results.length;
       res.status(200).json({ count, results });
-    })
+    });
 }
 
 function handleGetOne(req, res, next) {
   let id = req.params.id;
   req.model.get(id)
     .then(record => {
-      res.status(200).json(record)
+      res.status(200).json(record);
     }).catch(next);
 }
 
